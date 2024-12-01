@@ -22,8 +22,7 @@ FROM nginx:alpine
 # Copy the built Angular app to the Nginx directory
 COPY --from=build /app/dist/dbx-guardian-ui /usr/share/nginx/html
 
-# Expose port 80
-EXPOSE 80
-
+# Expose port 3000
+EXPOSE 3000
 # Start Nginx server
 CMD ["nginx", "-g", "daemon off;"]
