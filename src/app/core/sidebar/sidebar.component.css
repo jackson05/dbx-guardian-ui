@@ -1,0 +1,37 @@
+.mat-toolbar {
+  position: relative;
+  z-index: 5 ;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.spacer {
+  flex: 1; /* Pushes content to the left */
+}
+
+.top-right-btn, .account-icon, .notifications-icon {
+  position: absolute;
+  top: 8px;  /* Adjust the distance from the top */
+  right: 16px;  /* Adjust the distance from the right */
+}
+
+
+.top-right-btn {
+  right: 16px;  /* Adjust the distance from the right */
+}
+
+.account-icon {
+  right: 90px;  /* Adjust this value to create space between the menu and account icon */
+}
+
+.notifications-icon {
+  right: 50px;  /* Adjust this value to create space between the account icon and notifications icon */
+}
+
+.content {
+  padding: 24px;
+}
+
+.sidenav-container {
+  height: calc(100vh - 64px);
+}

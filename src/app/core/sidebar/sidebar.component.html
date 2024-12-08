@@ -1,1 +1,45 @@
-<p>sidebar works!</p>
+<mat-toolbar class="mat-elevation-z3">
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>{{title}}</span>
+  <span class="spacer"></span>
+
+  <!-- Mat Menu and Account Icon positioned at the top right -->
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="top-right-btn">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item *ngFor="let item of subMenuItems()">
+      <mat-icon>{{item.icon}}</mat-icon>
+      <span>{{item.label}}</span>
+    </button>
+  </mat-menu>
+
+  <!-- Account Circle button also aligned to the top-right -->
+  <button mat-icon-button class="account-icon">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <!-- Notifications button -->
+  <button mat-icon-button class="notifications-icon">
+    <mat-icon>notifications</mat-icon>
+  </button>
+</mat-toolbar>
+
+
+<!-- adding the side nav -->
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" opened [style.width]="'250px'">
+    <app-custom-profile></app-custom-profile>
+
+    <mat-nav-list>
+      <a mat-list-item *ngFor="let item of menuItems()">
+        <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
+        <span mat-line>{{item.label}}</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="content">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
