@@ -1,13 +1,13 @@
+import { FALSE } from './../../../../node_modules/sass/types/legacy/function.d';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import {  MatMenuModule} from '@angular/material/menu';
-import { CustomProfileComponent } from './custom-profile/custom-profile.component';
 import { CommonModule } from '@angular/common';
 
 export type MenuItems = {
@@ -27,7 +27,6 @@ export type MenuItems = {
       MatButtonModule,
       MatMenuModule,
       RouterOutlet,
-      CustomProfileComponent,
       CommonModule
 
     ],
@@ -37,6 +36,12 @@ export type MenuItems = {
   })
 export class SidebarComponent {
   title="DBX Guardian"
+
+   // collapse sidenav
+   collapsed = signal(false);
+
+   sidenavWidth = computed(() => this.collapsed() ? '65px' : '250px');
+
 
   menuItems= signal<MenuItems[]>([
     {label: 'Dashboard', route: '/dashboard', icon: 'dashboard'},
@@ -56,4 +61,6 @@ export class SidebarComponent {
     {label: 'Logout', route: '/logout', icon: 'exit_to_app'}
   ]
   )
+
+
 }

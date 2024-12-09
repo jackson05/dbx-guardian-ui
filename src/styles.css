@@ -1,4 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #f0f0f0; /* Light gray background */
+}
+
+/* Customize Material components with custom styles */
+mat-toolbar {
+  background-color: #1976d2; /* Use Indigo for the toolbar background */
+}
+
+mat-sidenav-container {
+  background-color: #3f51b5;/* Light gray background for sidenav */
+}
+
+mat-card {
+  background-color: #ffffff; /* White background for cards */
+}
+
 

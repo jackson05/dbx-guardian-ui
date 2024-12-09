@@ -1,5 +1,5 @@
-<mat-toolbar class="mat-elevation-z3">
-  <button mat-icon-button (click)="sidenav.toggle()">
+<mat-toolbar class="mat-elevation-z3 ">
+  <button mat-icon-button (click)="collapsed.set(!collapsed())">
     <mat-icon>menu</mat-icon>
   </button>
   <span>{{title}}</span>
@@ -29,9 +29,7 @@
 
 <!-- adding the side nav -->
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #sidenav mode="side" opened [style.width]="'250px'">
-    <app-custom-profile></app-custom-profile>
-
+  <mat-sidenav #sidenav mode="side" opened [style.width]="sidenavWidth()">
     <mat-nav-list>
       <a mat-list-item *ngFor="let item of menuItems()">
         <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
@@ -39,7 +37,7 @@
       </a>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content class="content">
+  <mat-sidenav-content class="content" [style.width]="sidenavWidth()">
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

@@ -1,8 +1,10 @@
-.mat-toolbar {
+mat-toolbar {
   position: relative;
   z-index: 5 ;
   justify-content: space-between;
   align-items: center;
+  background-color:blue;
+  color: white;
 
 }
 .spacer {
@@ -35,3 +37,8 @@
 .sidenav-container {
   height: calc(100vh - 64px);
 }
+
+
+
+
+
