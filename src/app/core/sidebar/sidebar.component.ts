@@ -1,4 +1,3 @@
-import { FALSE } from './../../../../node_modules/sass/types/legacy/function.d';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Component, computed, signal } from '@angular/core';
@@ -9,6 +8,9 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import {  MatMenuModule} from '@angular/material/menu';
 import { CommonModule } from '@angular/common';
+//import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
+//import { CoreRoutingModule } from
 
 export type MenuItems = {
   icon: string;
@@ -27,7 +29,9 @@ export type MenuItems = {
       MatButtonModule,
       MatMenuModule,
       RouterOutlet,
-      CommonModule
+      CommonModule,
+      //BrowserModule,
+      RouterModule
 
     ],
     templateUrl: './sidebar.component.html',
