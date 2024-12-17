@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DbxworkspacesComponent } from './dbxworkspaces.component';
+import { WorkspaceDialogComponent } from './workspace-dialog.component';
 
-describe('DbxworkspacesComponent', () => {
-  let component: DbxworkspacesComponent;
-  let fixture: ComponentFixture<DbxworkspacesComponent>;
+describe('WorkspaceDialogComponent', () => {
+  let component: WorkspaceDialogComponent;
+  let fixture: ComponentFixture<WorkspaceDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DbxworkspacesComponent]
+      imports: [WorkspaceDialogComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DbxworkspacesComponent);
+    fixture = TestBed.createComponent(WorkspaceDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

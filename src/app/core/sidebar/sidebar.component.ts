@@ -45,6 +45,7 @@ export class SidebarComponent {
    collapsed = signal(false);
 
    sidenavWidth = computed(() => this.collapsed() ? '65px' : '250px');
+   contentWidth = computed(() => this.collapsed() ? 'calc(50% - 250px)' : 'calc(50% - 65px)');
 
 
   menuItems= signal<MenuItems[]>([

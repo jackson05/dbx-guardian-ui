@@ -31,13 +31,14 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #sidenav mode="side" opened [style.width]="sidenavWidth()">
     <mat-nav-list>
-      <a mat-list-item *ngFor="let item of menuItems()" [routerLink]="item.route" routerLinkActive #rla="routerLinkActive" [activated]="rla.isActive">
+      <a  mat-list-item *ngFor="let item of menuItems()" [routerLink]="item.route"
+      routerLinkActive="selected-menu-item" #rla="routerLinkActive" [activated]="rla.isActive">
         <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
         <span mat-line>{{item.label}}</span>
       </a>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content class="content" [style.width]="sidenavWidth()">
-    <router-outlet></router-outlet>
+  <mat-sidenav-content class="content" [style.width]="contentWidth()">
+     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

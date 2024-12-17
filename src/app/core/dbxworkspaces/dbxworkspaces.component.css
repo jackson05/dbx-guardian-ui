@@ -1,0 +1,95 @@
+/* Container styling */
+.card-container {
+  display: flex;
+  justify-content: center; /* Center-align the buttons */
+  flex-wrap: wrap; /* Wrap buttons on smaller screens */
+  gap: 12px; /* Smaller spacing between buttons */
+  padding: 16px;
+}
+
+/* Individual button styling */
+.service-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background-color: #ffffff; /* White background for buttons */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 80px; /* Smaller button size */
+  height: 80px;
+  padding: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: inherit;
+  font-family: Arial, sans-serif;
+}
+
+/* Hover effect */
+.service-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Image styling */
+.service-image {
+  width: 28px; /* Icon size */
+  height: 28px;
+  object-fit: cover;
+  margin-bottom: 4px;
+  border-radius: 50%; /* Circular image style */
+}
+
+/* Selected button styling */
+.service-button.selected {
+  background-color: #3f51b5; /* Background color when selected */
+  color: white; /* Text color when selected */
+  border: 1px solid #3f51b5; /* Border color when selected */
+}
+
+
+.workspace-btn {
+  background-color: #f0f0f0; /* Light background color */
+  color: black; /* Text color */
+  border-radius: 5px;
+  padding: 10px 15px; /* Standard padding */
+  margin: 10px 0;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: capitalize; /*Capitalized  */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for subtle depth */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+  cursor: pointer; /* Indicating it's clickable */
+}
+
+.workspace-btn:hover {
+  background-color: #3f51b5; /* Indigo background on hover */
+  color: white; /* Change text color on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slightly larger shadow on hover */
+  transform: scale(1.05); /* Button grows a bit when hovered */
+}
+
+.workspace-btn:active {
+  transform: scale(0.98); /* Slight shrinking effect when clicked */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Return to a smaller shadow when pressed */
+}
+
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+  .service-button {
+    width: 70px;
+    height: 70px;
+  }
+
+  .service-image {
+    width: 28px;
+    height: 28px;
+  }
+
+  .service-name {
+    font-size: 0.65rem;
+  }
+}

@@ -1,6 +1,8 @@
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './core/dashboard/dashboard.component';
 import { DbxworkspacesComponent } from './core/dbxworkspaces/dbxworkspaces.component';
+import { NgModel } from '@angular/forms';
+import { NgModule } from '@angular/core';
 
 export const routes: Routes = [
 
@@ -12,9 +14,7 @@ export const routes: Routes = [
 
   {
     path:'dashboard',
-    component: DashboardComponent,
-    // loadChildren: () => import('./core/dashboard/dashboard.component').then(m => m.DashboardComponent)
-    //loadChildren: () => import('./core/dashboard/dashboard.component').then(m => m.DashboardComponent)
+    component: DashboardComponent
   },
   {
     path: 'workspaces',
