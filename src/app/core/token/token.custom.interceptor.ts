@@ -14,6 +14,7 @@ export class CustomInterceptor implements HttpInterceptor {
   constructor(private tokenService: TokenService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    this.tokenService.saveToken();
     const token = this.tokenService.getToken();
     console.log('Token from service: ', token);
 
@@ -26,6 +27,8 @@ export class CustomInterceptor implements HttpInterceptor {
       return next.handle(authReq);
     }
 
+
     return next.handle(req);
   }
+
 }
