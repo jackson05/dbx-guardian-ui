@@ -33,11 +33,11 @@ export class WorkspaceDialogComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      _workspaceID: [this.workspace._workspaceID, Validators.required],
-      _workspaceName: [this.workspace._workspaceName, Validators.required],
-      _workspaceUrl: [this.workspace._workspaceUrl, Validators.required],
-      _cloudService: [this.workspace._cloudService, Validators.required],
-      _description: [this.workspace._description],
+      workspaceId: [this.workspace.workspaceId, Validators.required],
+      workspaceName: [this.workspace.workspaceName, Validators.required],
+      workspaceUrl: [this.workspace.workspaceUrl, Validators.required],
+      cloudProvider: [this.workspace.cloudProvider, Validators.required],
+      description: [this.workspace.description],
     });
   }
 

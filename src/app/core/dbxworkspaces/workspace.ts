@@ -5,17 +5,17 @@ export class Workspace {
 
   }
 
-  public _workspaceID= '';
-  public _workspaceName= '';
-  public _workspaceUrl= '';
-  public _cloudService= '';
-  public _description= '';
-  public _acessToken= ''
-  public _refreshString= ''
-  public _tokenExpirationDa=0;
-  public _refreshDate= '';
-  public _created= '';
-  public _state= '';
-  public _lastModified="";
+  public workspaceId= '';
+  public workspaceName= '';
+  public workspaceUrl= '';
+  public cloudProvider= '';
+  public description= '';
+  public acessToken= ''
+  public refreshString= ''
+  public tokenExpirationDa=0;
+  public refreshDate= '';
+  public created= '';
+  public state= '';
+  public lastModified="";
 
 }

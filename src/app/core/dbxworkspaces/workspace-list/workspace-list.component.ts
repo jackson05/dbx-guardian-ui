@@ -20,7 +20,7 @@ import { MatTableModule } from '@angular/material/table';
   templateUrl: './workspace-list.component.html',
   styleUrls: ['./workspace-list.component.css'],
 })
-export class WorkspaceListComponent implements /*AfterViewInit,*/ OnInit {
+export class WorkspaceListComponent implements AfterViewInit, OnInit {
   displayedColumns: string[] = ['workspaceID', 'name', 'url', 'cloudService', 'created', 'modified', 'status', 'tokenExpiration', 'actions'];
   data: Workspace[] = [];
   resultsLength = 0;
@@ -33,12 +33,13 @@ export class WorkspaceListComponent implements /*AfterViewInit,*/ OnInit {
   constructor(private workspaceService: WorkspaceService) {}
 
   ngOnInit(): void {
-   /* this.workspaceService.getworkspaces('name', 'asc', 0).subscribe(data => {
+   this.workspaceService.getworkspaces('name', 'asc', 0).subscribe(data => {
       this.data = data.items;
       this.resultsLength = data.total_count;
+
     });
-    */
-  // this.getworkspaces('name', 'asc', 0);
+
+   this.getworkspaces('name', 'asc', 0);
   }
 
   private getworkspaces(sort: string, order: string, page: number): Observable<{ items: Workspace[]; total_count: number }> {

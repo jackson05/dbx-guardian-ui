@@ -67,6 +67,7 @@ export class DbxworkspacesComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
+        console.log('Dialog was closed with result:', result);
         this.workspaceService.addWorkspace(result).subscribe({
           next: response => {
             console.log('Workspace added successfully:', response);
