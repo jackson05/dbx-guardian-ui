@@ -1,3 +1,4 @@
+import { KeycloakService } from '../../auth/keycloak/keycloak.service';
 import { Injectable } from '@angular/core';
 import {
   HttpEvent,
@@ -6,17 +7,18 @@ import {
   HttpRequest,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { TokenService } from './token.service'; // Service to manage the token
+//import { TokenService } from './token.service'; // Service to manage the token
 
 @Injectable()
 
 export class CustomInterceptor implements HttpInterceptor {
-  constructor(private tokenService: TokenService) {}
+  constructor(private _keycloakService: KeycloakService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    this.tokenService.saveToken();
-    const token = this.tokenService.getToken();
-    console.log('Token from service: ', token);
+    const token = this._keycloakService.keycloak?.token;
+
+    //this.tokenService.saveToken();
+    //const token = this.tokenService.getToken();
 
     if (token) {
       const authReq = req.clone({
@@ -26,7 +28,6 @@ export class CustomInterceptor implements HttpInterceptor {
       });
       return next.handle(authReq);
     }
-
 
     return next.handle(req);
   }

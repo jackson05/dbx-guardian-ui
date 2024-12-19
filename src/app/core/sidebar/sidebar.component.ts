@@ -1,4 +1,7 @@
 
+import { KeycloakService } from '../../auth/keycloak/keycloak.service';
+import { OnInit } from '@angular/core';
+
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Component, computed, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
@@ -30,7 +33,6 @@ export type MenuItems = {
       MatMenuModule,
       RouterOutlet,
       CommonModule,
-      //BrowserModule,
       RouterModule
 
     ],
@@ -38,7 +40,15 @@ export type MenuItems = {
     styleUrls: ['./sidebar.component.css']
 
   })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit {
+
+constructor(private _keyCloakService:KeycloakService) {}
+
+async ngOnInit():  Promise<void> {
+  await this._keyCloakService.init();
+  await this._keyCloakService.login();
+}
+
   title="DBX Guardian"
 
    // collapse sidenav
@@ -67,5 +77,8 @@ export class SidebarComponent {
   ]
   )
 
+  async logout(){
+    this._keyCloakService.logout();
+  }
 
 }

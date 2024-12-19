@@ -4,7 +4,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
 import { provideHttpClient, withInterceptorsFromDi, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { CustomInterceptor } from './app/core/token/token.custom.interceptor';
+import { CustomInterceptor } from './app/core/interceptor/token.custom.interceptor';
 import { routes } from './app/app.routes'; // Define routes separately
 
 bootstrapApplication(AppComponent, {

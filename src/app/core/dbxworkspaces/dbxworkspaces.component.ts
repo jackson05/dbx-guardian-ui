@@ -10,8 +10,9 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { Workspace } from './workspace';
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { CustomInterceptor } from '../token/token.custom.interceptor';
+import { CustomInterceptor } from '../interceptor/token.custom.interceptor';
 import { HttpClientModule } from '@angular/common/http';
+import{WorkspaceListComponent} from './workspace-list/workspace-list.component';
 
 
 @Component({
@@ -24,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     MatTabsModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    WorkspaceListComponent
 
   ],
 

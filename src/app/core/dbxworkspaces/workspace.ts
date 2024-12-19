@@ -10,9 +10,8 @@ export class Workspace {
   public workspaceUrl= '';
   public cloudProvider= '';
   public description= '';
-  public acessToken= ''
-  public refreshString= ''
-  public tokenExpirationDa=0;
+  public token= '';
+  public tokenExpiry=0;
   public refreshDate= '';
   public created= '';
   public state= '';

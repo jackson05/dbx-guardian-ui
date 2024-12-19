@@ -7,6 +7,7 @@ import { WorkspaceService } from '../workspace.service';
 import { Workspace } from '../workspace';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-workspace-list',
@@ -15,13 +16,14 @@ import { MatTableModule } from '@angular/material/table';
     MatPaginator,
     MatSort,
     MatTableModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    CommonModule
   ],
   templateUrl: './workspace-list.component.html',
   styleUrls: ['./workspace-list.component.css'],
 })
 export class WorkspaceListComponent implements AfterViewInit, OnInit {
-  displayedColumns: string[] = ['workspaceID', 'name', 'url', 'cloudService', 'created', 'modified', 'status', 'tokenExpiration', 'actions'];
+  displayedColumns: string[] = ['Workspace ID', 'Name', 'URL', 'Cloud Provider', 'Created', 'Modified', 'Token Edited date','Expiration', 'Action'];
   data: Workspace[] = [];
   resultsLength = 0;
   isLoadingResults = true;
