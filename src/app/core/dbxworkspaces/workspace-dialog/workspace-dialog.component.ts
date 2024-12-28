@@ -5,6 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { Workspace } from '../workspace';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-workspace-dialog',
@@ -15,6 +16,7 @@ import { Workspace } from '../workspace';
     MatInputModule,
     MatButtonModule,
     MatDialogModule,
+    MatSelectModule
   ],
   templateUrl: './workspace-dialog.component.html',
   styleUrls: ['./workspace-dialog.component.css'],

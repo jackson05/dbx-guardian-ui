@@ -26,7 +26,17 @@
 <p>
   <mat-form-field>
     <mat-label>Cloud Provider</mat-label>
-    <input matInput formControlName="cloudProvider" required>
+    <!--<input matInput formControlName="cloudProvider" required> -->
+
+
+
+  <mat-select formControlName="cloudProvider" required>
+      <mat-option>--</mat-option>
+      <mat-option value="aws">AWS</mat-option>
+      <mat-option value="azure">Azure</mat-option>
+      <mat-option value="gcp">GCP</mat-option>
+  </mat-select>
+
   </mat-form-field>
 </p>
 
