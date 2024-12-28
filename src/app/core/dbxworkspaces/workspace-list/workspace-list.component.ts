@@ -7,6 +7,7 @@ import { WorkspaceService } from '../workspace.service';
 import { Workspace } from '../workspace';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -17,13 +18,17 @@ import { CommonModule } from '@angular/common';
     MatSort,
     MatTableModule,
     MatProgressSpinnerModule,
-    CommonModule
+    CommonModule,
+    MatIconModule
   ],
   templateUrl: './workspace-list.component.html',
   styleUrls: ['./workspace-list.component.css'],
 })
 export class WorkspaceListComponent  implements AfterViewInit, OnInit {
-  displayedColumns: string[] = ['Workspace ID', 'Name', 'URL', 'Cloud Provider', 'Created', 'Modified', 'Token Edited date','Expiration', 'Action'];
+
+  //displayedColumns: string[] = ['Workspace ID', 'Name', 'URL', 'Cloud Provider', 'Created', 'Modified', 'Token Edited date','Expiration', 'Action'];
+  displayedColumns: string[] = ['workspaceId', 'workspaceName', 'workspaceUrl', 'cloudProvider', 'createdAt', 'updatedAt', 'tokenUpdated', 'tokenExpiry', 'action'];
+
   data: Workspace[] = [];
   resultsLength = 0;
   isLoadingResults = true;
@@ -36,22 +41,21 @@ export class WorkspaceListComponent  implements AfterViewInit, OnInit {
 
   ngOnInit(): void {
   this.workspaceService.getworkspaces('name', 'asc', 0).subscribe(data => {
-      this.data = data.items;
+      this.data = data.content;
       this.resultsLength = data.total_count;
 
     });
 
-   this.getworkspaces('name', 'asc', 0);
+  this.getworkspaces('name', 'asc', 0);
 
   }
 
-  private getworkspaces(sort: string, order: string, page: number): Observable<{ items: Workspace[]; total_count: number }> {
+  private getworkspaces(sort: string, order: string, page: number): Observable<{ content: Workspace[]; total_count: number }> {
     return this.workspaceService.getworkspaces(sort, order, page);
   }
 
 
   ngAfterViewInit() {
-   // display data
 
    this.sort.sortChange.subscribe(() => (this.paginator.pageIndex = 0));
    merge(this.sort.sortChange, this.paginator.page)
@@ -68,9 +72,19 @@ export class WorkspaceListComponent  implements AfterViewInit, OnInit {
          this.isRateLimitReached = data === null;
          if (data === null) return [];
          this.resultsLength = data.total_count;
-         return data.items;
+         console.log('Contents!=>' , data.content);
+         return data.content;
        })
      )
      .subscribe(data => (this.data = data));
   }
+
+
+
+  editWorkspace(_t100: any) {
+    throw new Error('Method not implemented.');
+    }
+
+
+
 }

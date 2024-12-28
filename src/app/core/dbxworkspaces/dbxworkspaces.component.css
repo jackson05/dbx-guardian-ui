@@ -1,10 +1,11 @@
-/* Container styling */
+
 .card-container {
   display: flex;
   justify-content: center; /* Center-align the buttons */
   flex-wrap: wrap; /* Wrap buttons on smaller screens */
   gap: 12px; /* Smaller spacing between buttons */
-  padding: 16px;
+  padding: 16px; /* Include padding in the element's total width */
+
 }
 
 /* Individual button styling */

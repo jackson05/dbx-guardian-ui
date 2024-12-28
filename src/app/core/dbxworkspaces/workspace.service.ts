@@ -24,10 +24,10 @@ export class WorkspaceService {
     });
   }
 */
-  getworkspaces(sort: string, order: string, page: number): Observable<{ items: Workspace[], total_count: number }> {
+  getworkspaces(sort: string, order: string, page: number): Observable<{ content: Workspace[], total_count: number }> {
 
     const url = `${this.baseUrl}?sort=${sort}&order=${order}&page=${page + 1}`;
-    return this._httpClient.get<{ items: Workspace[], total_count: number }>(url /*, { headers: this.getAuthHeaders() }*/);
+    return this._httpClient.get<{ content: Workspace[], total_count: number }>(url /*, { headers: this.getAuthHeaders() }*/);
 
   }
 

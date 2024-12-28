@@ -32,10 +32,17 @@ mat-toolbar {
 
 .content {
   padding: 24px;
+  flex-grow: 1; /* Allow content to expand as much as possible */
+  padding: 16px; /* Optional: Add spacing inside the content */
+  min-width: 300px; /* Optional: Set a minimum width for the content */
+  max-width: 100%; /* Ensure it doesn't overflow */
+  background-color: #f8f9fa; /* Optional: Set a background color for better visibility */
 }
 
 .sidenav-container {
   height: calc(100vh - 64px);
+  display: flex;
+
 }
 
 .selected-menu-item {
@@ -43,6 +50,10 @@ mat-toolbar {
   color: white;
   border-left: #3f51b5 5px solid;
 }
+
+
+
+
 
 
 
