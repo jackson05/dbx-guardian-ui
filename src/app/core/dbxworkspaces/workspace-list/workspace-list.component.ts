@@ -22,7 +22,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './workspace-list.component.html',
   styleUrls: ['./workspace-list.component.css'],
 })
-export class WorkspaceListComponent implements AfterViewInit, OnInit {
+export class WorkspaceListComponent  implements AfterViewInit, OnInit {
   displayedColumns: string[] = ['Workspace ID', 'Name', 'URL', 'Cloud Provider', 'Created', 'Modified', 'Token Edited date','Expiration', 'Action'];
   data: Workspace[] = [];
   resultsLength = 0;
@@ -35,21 +35,24 @@ export class WorkspaceListComponent implements AfterViewInit, OnInit {
   constructor(private workspaceService: WorkspaceService) {}
 
   ngOnInit(): void {
-   this.workspaceService.getworkspaces('name', 'asc', 0).subscribe(data => {
+  this.workspaceService.getworkspaces('name', 'asc', 0).subscribe(data => {
       this.data = data.items;
       this.resultsLength = data.total_count;
 
     });
 
    this.getworkspaces('name', 'asc', 0);
+
   }
 
   private getworkspaces(sort: string, order: string, page: number): Observable<{ items: Workspace[]; total_count: number }> {
     return this.workspaceService.getworkspaces(sort, order, page);
   }
 
+
   ngAfterViewInit() {
    // display data
+
    this.sort.sortChange.subscribe(() => (this.paginator.pageIndex = 0));
    merge(this.sort.sortChange, this.paginator.page)
      .pipe(
@@ -70,5 +73,4 @@ export class WorkspaceListComponent implements AfterViewInit, OnInit {
      )
      .subscribe(data => (this.data = data));
   }
-
 }

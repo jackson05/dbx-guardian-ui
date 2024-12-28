@@ -40,14 +40,10 @@ export type MenuItems = {
     styleUrls: ['./sidebar.component.css']
 
   })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent {
 
 constructor(private _keyCloakService:KeycloakService) {}
 
-async ngOnInit():  Promise<void> {
-  await this._keyCloakService.init();
-  await this._keyCloakService.login();
-}
 
   title="DBX Guardian"
 
@@ -76,9 +72,9 @@ async ngOnInit():  Promise<void> {
     {label: 'Logout', route: '/logout', icon: 'exit_to_app'}
   ]
   )
-
+/*
   async logout(){
     this._keyCloakService.logout();
   }
-
+*/
 }

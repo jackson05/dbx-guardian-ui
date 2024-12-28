@@ -44,7 +44,9 @@ export class WorkspaceDialogComponent implements OnInit {
   save() {
     if (this.form.valid) {
       const formData = this.form.value;
+      console.log('data!=>' , formData);
       this.dialogRef.close(formData);
+
     } else {
       console.log('Form is invalid!');
     }

@@ -1,8 +1,9 @@
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, CanActivateFn } from '@angular/router';
 import { DashboardComponent } from './core/dashboard/dashboard.component';
 import { DbxworkspacesComponent } from './core/dbxworkspaces/dbxworkspaces.component';
 import { NgModel } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { authGuard } from './auth/guard/auth.guard';
 
 export const routes: Routes = [
 
@@ -14,11 +15,19 @@ export const routes: Routes = [
 
   {
     path:'dashboard',
-    component: DashboardComponent
+    component: DashboardComponent,
+    canActivate: [authGuard]
   },
   {
     path: 'workspaces',
-    component: DbxworkspacesComponent
+    component: DbxworkspacesComponent,
+    canActivate: [authGuard]
 
   }
 ];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }

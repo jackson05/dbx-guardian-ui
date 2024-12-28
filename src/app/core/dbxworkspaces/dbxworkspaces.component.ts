@@ -1,4 +1,4 @@
-import { Component, inject, NgModule } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { WorkspaceDialogComponent } from './workspace-dialog/workspace-dialog.component';
 import { WorkspaceService } from './workspace.service';
@@ -9,8 +9,6 @@ import { CommonModule } from '@angular/common';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { Workspace } from './workspace';
-import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { CustomInterceptor } from '../interceptor/token.custom.interceptor';
 import { HttpClientModule } from '@angular/common/http';
 import{WorkspaceListComponent} from './workspace-list/workspace-list.component';
 
