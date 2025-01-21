@@ -1,2 +1,35 @@
-<p>dashboard works!</p>
+<div class="dashboard">
+  <div class="dashboard-content">
 
+    <div class="dashboard-content-body">
+      <!-- Center the workspace select -->
+      <div class="workspace-select">
+        <mat-form-field appearance="fill">
+          <mat-label>Workspace</mat-label>
+          <mat-select formControlName="workspaceId">
+            <mat-option *ngFor="let workspace of workspaces" [value]="workspace.workspace_id">
+              {{ workspace.workspace_name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="chart-row">
+        <div class="chart-container">
+          <canvas id="clusterStatusChart"></canvas>
+        </div>
+
+        <div class="chart-container">
+          <canvas id="jobFailuresChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Move clusterStartFailureChart to its own section -->
+      <div class="cluster-start-failure-section">
+        <div class="chart-container">
+          <canvas id="clusterStartFailureChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+.cluster-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Space between rows */
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  gap: 16px; /* Space between columns */
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end; /* Align the button to the right */
+  margin-top: 16px;
+}
+
+/* i need to .cluster-table class to separate to the save boutton */
+.cluster-table {
+  margin-top: 25px;
+}

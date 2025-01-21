@@ -1,1 +1,77 @@
-<p>cluster works!</p>
+<form [formGroup]="clusterForm" class="cluster-form">
+  <!-- Row 1 -->
+  <div class="form-row">
+    <mat-form-field appearance="fill">
+      <mat-label>Workspace</mat-label>
+      <mat-select formControlName="workspaceId">
+        <mat-option *ngFor="let workspace of workspaces" [value]="workspace.workspace_id">
+          {{ workspace.workspace_name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Cluster Type</mat-label>
+      <mat-select id="clusterType" formControlName="clusterType" (selectionChange)="onClusterTypeChange($event.value)">
+        <mat-option value="MachineLearningCluster">Machine Learning Cluster</mat-option>
+        <mat-option value="SingleNodeCluster">Single Node Cluster</mat-option>
+        <mat-option value="SingleNodeWithKindCluster">Single Node With Kind Cluster</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <!-- Row 2 -->
+  <div class="form-row">
+    <mat-form-field appearance="fill">
+      <mat-label>Cluster Name</mat-label>
+      <input matInput id="clusterName" formControlName="clusterName">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Spark Version</mat-label>
+      <input matInput id="sparkVersion" formControlName="sparkVersion">
+    </mat-form-field>
+  </div>
+
+  <!-- Row 3 -->
+  <div class="form-row">
+    <mat-form-field appearance="fill">
+      <mat-label>Worker Node</mat-label>
+      <input matInput id="nodeTypeId" formControlName="nodeTypeId">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" *ngIf="clusterForm.get('numWorkers')">
+      <mat-label>Number of Workers</mat-label>
+      <input matInput id="numWorkers" type="number" formControlName="numWorkers">
+    </mat-form-field>
+  </div>
+
+  <!-- Row 4 -->
+  <div class="form-row" *ngIf="clusterForm.get('kind')">
+    <mat-form-field appearance="fill">
+      <mat-label>Kind</mat-label>
+      <input matInput id="kind" formControlName="kind">
+    </mat-form-field>
+  </div>
+
+  <div formGroupName="sparkConf" *ngIf="clusterForm.get('sparkConf')" class="form-row">
+    <mat-form-field appearance="fill">
+      <mat-label>Spark Config Key</mat-label>
+      <input matInput id="sparkConfKey" formControlName="key">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Spark Config Value</mat-label>
+      <input matInput id="sparkConfValue" formControlName="value">
+    </mat-form-field>
+  </div>
+
+  <!-- Submit Button -->
+  <div class="form-actions">
+    <button mat-raised-button color="primary" (click)="createCluster()">Create Cluster</button>
+  </div>
+</form>
+
+<div class="cluster-table">
+  <app-cluster-table></app-cluster-table>
+</div>

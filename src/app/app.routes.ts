@@ -2,8 +2,10 @@ import { RouterModule, Routes, CanActivateFn } from '@angular/router';
 import { DashboardComponent } from './core/dashboard/dashboard.component';
 import { DbxworkspacesComponent } from './core/dbxworkspaces/dbxworkspaces.component';
 import { NgModel } from '@angular/forms';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { authGuard } from './auth/guard/auth.guard';
+import { SettingsComponent } from './core/settings/settings.component';
+import { ClusterComponent } from './core/cluster/cluster.component';
 
 export const routes: Routes = [
 
@@ -22,8 +24,19 @@ export const routes: Routes = [
     path: 'workspaces',
     component: DbxworkspacesComponent,
     canActivate: [authGuard]
+  },
 
-  }
+  {
+    path: 'clusters',
+    component: ClusterComponent,
+    canActivate: [authGuard]
+  },
+
+
+  {path: 'settings',
+    component: SettingsComponent,
+    canActivate: [authGuard]
+  },
 ];
 
 @NgModule({

@@ -27,7 +27,7 @@ import { CommonModule } from '@angular/common';
 export class WorkspaceListComponent  implements AfterViewInit, OnInit {
 
   //displayedColumns: string[] = ['Workspace ID', 'Name', 'URL', 'Cloud Provider', 'Created', 'Modified', 'Token Edited date','Expiration', 'Action'];
-  displayedColumns: string[] = ['workspaceId', 'workspaceName', 'workspaceUrl', 'cloudProvider', 'createdAt', 'updatedAt', 'tokenUpdated', 'tokenExpiry', 'action'];
+  displayedColumns: string[] = ['workspaceId', 'workspaceName', 'workspaceUrl', 'cloudProvider', 'createdAt', 'updatedAt', 'tokenExpiry', 'action']; // 'tokenUpdated',
 
   data: Workspace[] = [];
   resultsLength = 0;

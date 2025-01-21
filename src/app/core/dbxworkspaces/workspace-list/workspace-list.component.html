@@ -33,12 +33,12 @@
       <th mat-header-cell *matHeaderCellDef>Modified</th>
       <td mat-cell *matCellDef="let workspace">{{ workspace.updatedAt | date: 'short' }}</td>
     </ng-container>
-
+<!--
     <ng-container matColumnDef="tokenUpdated">
       <th mat-header-cell *matHeaderCellDef>Token Edited date</th>
-      <td mat-cell *matCellDef="let workspace">{{ workspace.tokenUpdated | date: 'short' }}</td>
+      <td mat-cell *matCellDef="let workspace">{{ workspace.updatedAt  | date: 'short' }}</td>
     </ng-container>
-
+-->
     <ng-container matColumnDef="tokenExpiry">
       <th mat-header-cell *matHeaderCellDef>Expiration</th>
       <td mat-cell *matCellDef="let workspace">{{ workspace.tokenExpiry | date: 'short' }}</td>
