@@ -1,0 +1,56 @@
+
+<h2 mat-dialog-title>Workspace Set up</h2>
+<mat-dialog-content class="mat-typography" [formGroup]="form">
+
+<p>
+  <mat-form-field>
+    <mat-label>Workspace ID</mat-label>
+    <input matInput formControlName="workspaceId" required>
+  </mat-form-field>
+</p>
+
+<p>
+  <mat-form-field>
+    <mat-label>Workspace Name</mat-label>
+   <input matInput formControlName="workspaceName" required>
+  </mat-form-field>
+</p>
+
+<p>
+  <mat-form-field>
+    <mat-label>Workspace URL</mat-label>
+    <input matInput formControlName="workspaceUrl" required>
+  </mat-form-field>
+</p>
+
+<p>
+  <mat-form-field>
+    <mat-label>Cloud Provider</mat-label>
+    <!--<input matInput formControlName="cloudProvider" required> -->
+
+
+
+  <mat-select formControlName="cloudProvider" required>
+      <mat-option>--</mat-option>
+      <mat-option value="aws">AWS</mat-option>
+      <mat-option value="azure">Azure</mat-option>
+      <mat-option value="gcp">GCP</mat-option>
+  </mat-select>
+
+  </mat-form-field>
+</p>
+
+<p>
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <input matInput formControlName="description">
+  </mat-form-field>
+</p>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button class="install-btn" mat-button (click)="save()" cdkFocusInitial>Save</button>
+</mat-dialog-actions>
+

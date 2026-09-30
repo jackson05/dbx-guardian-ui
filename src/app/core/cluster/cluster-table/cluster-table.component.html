@@ -1,0 +1,60 @@
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let row of dataSource.data" class="mat-elevation-z3">
+    <mat-expansion-panel-header>
+      <mat-panel-description>
+        Cluster name: {{ row.cluster_name }}
+      </mat-panel-description>
+
+      <mat-panel-description>
+        <strong>Current State:</strong> {{ row.state }}
+      </mat-panel-description>
+
+      <mat-panel-description>
+        <strong>Spark Version: </strong>
+        {{ row.spark_version }}
+      </mat-panel-description>
+      <mat-panel-description>
+        <strong>Worker node:</strong>
+        {{ row.num_workers }}
+      </mat-panel-description>
+
+      <mat-panel-description>
+        <strong>Terminated at:</strong>
+        {{ row.terminated_time }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div>
+      <p><strong>Created By:</strong> {{ row.creator_user_name }}</p>
+      <p><strong>Spark Version:</strong> {{ row.spark_version }}</p>
+      <p><strong>Driver Node Type:</strong> {{ row.driver_node_type_id }}</p>
+      <p><strong>Num Workers:</strong> {{ row.num_workers }}</p>
+      <p><strong>Terminated Time:</strong> {{ row.terminated_time }}</p>
+
+      <div *ngIf="row.termination_reason">
+        <h4>Termination Details:</h4>
+        <p><strong>Code:</strong> {{ row.termination_reason.code }}</p>
+        <p><strong>Type:</strong> {{ row.termination_reason.type }}</p>
+        <div *ngIf="row.termination_reason.parameters">
+          <p><strong>Parameters:</strong></p>
+          <pre>{{ row.termination_reason.parameters | json }}</pre>
+        </div>
+      </div>
+    </div>
+
+    <mat-action-row>
+      <button mat-button color="primary">Edit
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-button color="primary" (click)="startCluster(row)">Start
+        <mat-icon>play_arrow</mat-icon>
+      </button>
+      <button mat-button color="accent" (click)="restartCluster(row)">Restart
+        <mat-icon>replay</mat-icon>
+      </button>
+      <button mat-button color="warn" (click)="stopCluster(row)">Stop
+        <mat-icon>stop</mat-icon>
+      </button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>

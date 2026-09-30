@@ -1,0 +1,29 @@
+// Import Angular Material theming
+@import '@angular/material/theming';
+
+// Define your primary and accent color palettes
+$indigo-palette: mat-palette($mat-indigo);
+$accent-palette: mat-palette($mat-pink, A200, A100, A400);
+
+// Create a custom theme using the defined color palettes
+$theme: mat-light-theme($indigo-palette, $accent-palette);
+
+// Include Angular Material's base styles for the theme
+@include angular-material-theme($theme);
+
+// Optionally, customize other components
+body {
+  background-color: #f0f0f0; /* Light gray background */
+}
+
+mat-toolbar {
+  background-color: #1976d2; /* Change toolbar background */
+}
+
+mat-sidenav-container {
+  background-color: #fafafa; /* Change sidenav background */
+}
+
+mat-card {
+  background-color: #ffffff; /* Set card background */
+}
